@@ -31,7 +31,7 @@ namespace playtictactoeTests
         [Test]
         public void Test()
         {
-            //_gamePage.MuteSound();
+            _gamePage.MuteSound();
 
             Assert.That(_visibilityElement.existsElement());
         }

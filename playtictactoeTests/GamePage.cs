@@ -6,8 +6,8 @@ namespace playtictactoeTests
     {
         private readonly IWebDriver _webDriver;
 
-        private static By _amountOfPlayers = By.CssSelector("class^= swap");
-        private static By _muteButton = By.CssSelector("class^= mute");
+        private static By _amountOfPlayers = By.CssSelector("[class^= swap]");
+        private static By _muteButton = By.CssSelector("[class^= mute]");
         private static By _mutedButton = By.CssSelector("[class=square]");
         private static By _squareTopLeft = By.CssSelector("[class=square top left]");
         private static By _squareTop = By.CssSelector("[class=square top]");
