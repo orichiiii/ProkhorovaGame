@@ -14,7 +14,7 @@ namespace playtictactoeTests
     {
         private IWebDriver _webDriver;
         private GamePage _gamePage;
-        private VisibilityElement _visibilityElement;
+        private ConstMethods _constMethods;
 
         [SetUp]
         public void SetUp()
@@ -22,18 +22,18 @@ namespace playtictactoeTests
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
             _webDriver = new ChromeDriver();
 
-            _visibilityElement = new VisibilityElement();
-
             _gamePage = new GamePage(_webDriver);
-            _gamePage.GoToGamePage();
         }
 
         [Test]
         public void Test()
         {
-            _gamePage.MuteSound();
+            var expectedResult = true;
 
-            Assert.That(_visibilityElement.existsElement());
+            _gamePage.GoToGamePage()
+                .MuteSound();
+
+            Assert.AreEqual(expectedResult, _constMethods.VisibilityOfElement(By.CssSelector("[d ^= 'M67']")));
         }
     }
 }
